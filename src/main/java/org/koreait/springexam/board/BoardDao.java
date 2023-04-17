@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -26,6 +27,14 @@ public class BoardDao {
             board.setModDt(modDt.toLocalDateTime());
         }
         return board;
+    }
+
+    public List<Board> gets(){
+
+        String sql = "SELECT * FROM BOARD";
+        List<Board> boards = jdbcTemplate.query(sql, this::boardMapper);
+        return boards;
+
     }
 
     public Board get(Long id){

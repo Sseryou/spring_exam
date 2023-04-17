@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 public class BoardForm {
-    @NotBlank
+    @NotBlank(message = "제목을 입력하세요.")
     private String subject;
-    @NotBlank
+    @NotBlank(message = "내용을 입력하세요.")
     private String content;
 }

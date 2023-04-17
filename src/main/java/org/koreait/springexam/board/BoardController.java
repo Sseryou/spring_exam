@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @RequestMapping("/board")
 public class BoardController {
@@ -18,6 +21,18 @@ public class BoardController {
 
     @Autowired
     private BoardWriteService service;
+
+
+    @GetMapping("/list") // /board/list 경로의 get 신호 받을시 실행
+    public String boardList(Model model){
+        List<Board> boards = new ArrayList<>();
+
+        boards = boardDao.gets();
+        model.addAttribute("boards", boards);
+
+        // list 페이지로 보낸다.
+        return "board/list";
+    }
 
     @GetMapping("/write")
     public String write(Model model){
