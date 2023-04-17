@@ -1,0 +1,23 @@
+스프링 웹 mvc
+1. 예외 처리
+- @ExceptionHandler
+
+	- 에러처리 메서드 자동 주입
+		- 발생한 예외 객체
+		- HttpServletRequest
+		- HttpServletResponse
+		- HttpSession
+		- Model model
+		
+		...
+		
+@ControllerAdvice - 자동 스캔 범위
+		: 공통 컨트롤러 : 컨트롤러의 공통 처리
+		
+스프링 부트
+		- 응답 코드별 오류 처리
+		- 템플릿 / error
+					400.html
+					401.html
+					404.html
+		
