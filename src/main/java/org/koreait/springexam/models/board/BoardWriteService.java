@@ -1,10 +1,13 @@
-package org.koreait.springexam.board;
+package org.koreait.springexam.models.board;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BoardWriteService {
+
+    @Autowired
+    private BoardFormValidator validator;
 
     private BoardDao boardDao;
     @Autowired
@@ -16,6 +19,8 @@ public class BoardWriteService {
         Board board = new Board();
         board.setSubject(boardForm.getSubject());
         board.setContent(boardForm.getContent());
+
+        validator.Check(boardForm);
 
         boardDao.insert(board);
     }

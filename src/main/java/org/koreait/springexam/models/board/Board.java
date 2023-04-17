@@ -1,4 +1,4 @@
-package org.koreait.springexam.board;
+package org.koreait.springexam.models.board;
 
 import lombok.Data;
 

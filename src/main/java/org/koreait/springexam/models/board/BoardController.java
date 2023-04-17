@@ -1,4 +1,4 @@
-package org.koreait.springexam.board;
+package org.koreait.springexam.models.board;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

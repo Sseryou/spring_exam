@@ -1,4 +1,4 @@
-package org.koreait.springexam.board;
+package org.koreait.springexam.models.board;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -31,7 +31,7 @@ public class BoardDao {
 
     public List<Board> gets(){
 
-        String sql = "SELECT * FROM BOARD";
+        String sql = "SELECT * FROM BOARD ORDER BY ID DESC";
         List<Board> boards = jdbcTemplate.query(sql, this::boardMapper);
         return boards;
 
@@ -50,8 +50,8 @@ public class BoardDao {
 
 
     public boolean insert(Board board){
-        String sql = "INSERT INTO BOARD (ID, SUBJECT, CONTENT)" +
-                "VALUES (SEQ_BOARD.nextval, ?, ?)";
+        String sql = "INSERT INTO BOARD (ID, SUBJECT, CONTENT) " +
+                " VALUES (SEQ_BOARD.nextval, ?, ?)";
         int cnt = jdbcTemplate.update(sql, board.getSubject(), board.getContent());
 
         return cnt > 0;
